@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Add an employee</title>
+        <link rel="stylesheet" href="#{application.contextPath}/resources/styles/style.css" />
+    </h:head>
+    <h:body>
+        <div id="container">
+            <h:form prependId="false">
+                <p:panel id="add-employee-form" header="Add an employee" styleClass="form">
+                    <div class="line">
+                        <p:outputLabel value="Firstname" for="firstname" />
+                        <p:inputText id="firstname" value="#{employeeController.employeeToAdd.firstname}" required="true" />
+                        <p:message for="firstname" />
+                    </div>
+                    <div class="line">
+                        <p:outputLabel value="Lastname" for="lastname" />
+                        <p:inputText id="lastname" value="#{employeeController.employeeToAdd.lastname}" required="true" />
+                        <p:message for="lastname" />
+                    </div>
+                    <div class="line">
+                        <p:outputLabel value="Email" for="email" />
+                        <p:inputText id="email" value="#{employeeController.employeeToAdd.email}" required="true" />
+                        <p:message for="email" />
+                    </div>
+                    <div class="line">
+                        <p:outputLabel value="Birth date" for="birthdate" />
+                        <p:calendar id="birthdate" value="#{employeeController.employeeToAdd.birthdate}" required="true" />
+                        <p:message for="birthdate" />
+                    </div>
+                    <div class="buttons">
+                        <p:commandButton
+                            actionListener="#{employeeController.addEmployee()}"
+                            value="Add employee"
+                            update="add-employee-form" />
+                    </div>
+                </p:panel>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

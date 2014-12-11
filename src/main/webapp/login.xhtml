@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login</title>
+        <link rel="stylesheet" href="#{application.contextPath}/resources/styles/style.css" />
+    </h:head>
+    <h:body>
+        <div id="container">
+            <h:form prependId="false">
+                <p:panel id="login-form" header="Login" styleClass="form">
+                    <div class="line">
+                        <p:outputLabel for="username" value="Username : " />
+                        <p:inputText id="username" value="#{authController.username}" /> <br/>
+                    </div>
+                    <div class="line">
+                        <p:outputLabel for="password" value="Password : " />
+                        <p:password id="password" value="#{authController.password}" /> <br/>
+                    </div>
+
+                    <div class="buttons">
+                        <p:commandButton 
+                            action="#{authController.login()}" 
+                            value="Login"
+                            ajax="false" />
+                    </div>
+                </p:panel>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

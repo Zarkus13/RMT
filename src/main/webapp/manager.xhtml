@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Manager home</title>
+        <link rel="stylesheet" href="#{application.contextPath}/resources/styles/style.css" />
+    </h:head>
+    <h:body>
+        <div id="container">
+            <h:form>
+                <p:dataTable value="#{employeeController.employeesFromCurrentManager()}" var="u">
+                    <p:column headerText="ID" sortBy="#{u.id}">
+                        #{u.id}
+                    </p:column>
+
+                    <p:column headerText="Firstname" sortBy="#{u.firstname}">
+                        #{u.firstname}
+                    </p:column>
+
+                    <p:column headerText="Lastname" sortBy="#{u.lastname}">
+                        #{u.lastname}
+                    </p:column>
+                </p:dataTable>
+                <br/>
+                <p:commandLink action="add_employee?faces-redirect=true" value="Add an employee" /> | 
+                <p:commandLink action="add_client?faces-redirect=true" value="Add a client" />
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
