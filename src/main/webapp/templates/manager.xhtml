@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition
+            template="./authenticated.xhtml">
+
+            <ui:define name="menu-items">
+                <p:menuitem value="List employees"
+                            action="manager?faces-redirect=true" />
+
+                <p:menuitem value="Add an employee"
+                            action="add_employee?faces-redirect=true" />
+
+                <p:menuitem value="Add a client"
+                            action="add_client?faces-redirect=true" />
+            </ui:define>
+
+        </ui:composition>
+    </body>
+</html>

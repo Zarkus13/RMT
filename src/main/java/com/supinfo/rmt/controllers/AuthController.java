@@ -39,7 +39,13 @@ public class AuthController implements Serializable {
         if(user == null)
             return null;
         else
-            return (user instanceof Employee ? "employee?faces-redirect=true" : "manager?faces-redirect=true");
+            return (user instanceof Employee ? "employee/employee?faces-redirect=true" : "manager/manager?faces-redirect=true");
+    }
+    
+    public String logout() {
+        loggedUser.setUser(null);
+        
+        return "/login?faces-redirect=true";
     }
 
     public String getUsername() {

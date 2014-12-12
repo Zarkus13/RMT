@@ -1,15 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Add a client</title>
-        <link rel="stylesheet" href="#{application.contextPath}/resources/styles/style.css" />
-    </h:head>
-    <h:body>
-        <div id="container">
-            <h:form prependId="false">
+
+    <body>
+
+        <ui:composition template="../templates/manager.xhtml">
+
+            <ui:define name="title">
+                Add a client
+            </ui:define>
+            
+            <ui:define name="content">
                 <p:panel id="add-client-form" header="Add a client" styleClass="form">
                     <div class="line">
                         <p:outputLabel value="Name : " for="name" />
@@ -22,8 +25,9 @@
                             actionListener="#{clientController.addClient()}" />
                     </div>
                 </p:panel>
-            </h:form>
-        </div>
-    </h:body>
-</html>
+            </ui:define>
 
+        </ui:composition>
+
+    </body>
+</html>

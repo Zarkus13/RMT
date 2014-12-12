@@ -33,7 +33,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "findAllUsers", query = "SELECT u FROM User u"),
     @NamedQuery(name = "login", query = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password")
 })
-public class User implements Serializable {
+public abstract class User implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

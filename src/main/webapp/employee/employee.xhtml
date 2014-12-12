@@ -1,16 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Employee home</title>
-        <link rel="stylesheet" href="#{application.contextPath}/resources/styles/style.css" />
-    </h:head>
-    <h:body>
-        <div id="container">
-            <h:form>
+
+    <body>
+        <ui:composition
+            template="../templates/employee.xhtml">
+
+            <ui:define name="title">Employee home</ui:define>
+
+            <ui:define name="content">
                 <p:dataTable value="#{workTimeController.workTimesFromCurrentEmployee()}" var="w">
                     <p:column headerText="ID" sortBy="#{w.id}">
                         #{w.id}
@@ -21,21 +23,19 @@
                             <f:convertDateTime dateStyle="short" />
                         </h:outputText>
                     </p:column>
-                    
+
                     <p:column headerText="Begin date" sortBy="#{w.endDate}">
                         <h:outputText value="#{w.endDate}">
                             <f:convertDateTime dateStyle="short" />
                         </h:outputText>
                     </p:column>
-                    
+
                     <p:column headerText="Client" sortBy="#{w.client.name}">
                         #{w.client.name}
                     </p:column>
                 </p:dataTable>
-                <br/>
-                <p:commandLink action="add_worktime?faces-redirect=true" value="Add a work time" />
-            </h:form>
-        </div>
-    </h:body>
+            </ui:define>
+        </ui:composition>
+    </body>
 </html>
 
